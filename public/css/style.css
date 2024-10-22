@@ -1,0 +1,15 @@
+/* Style untuk link yang aktif */
+.active-link {
+    border-bottom: 3px solid #0d6efd; 
+    color: #000000;
+}
+
+.nav-link:hover {
+    border-bottom: 3px solid #b6cfea; 
+}
+
+
+.tb-beasiswa thead th{
+    background-color: #0d6efd;
+    color: white;
+}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [BeasiswaController::class, 'index'])->name('index');
+Route::get('/daftar', [BeasiswaController::class, 'daftar'])->name('daftar');
+Route::get('/hasil', [BeasiswaController::class, 'hasil'])->name('hasil');
+Route::post('/store-beasiswa', [BeasiswaController::class, 'storeBeasiswa'])->name('store-beasiswa');
+Route::post('/store-mahasiswa', [BeasiswaController::class, 'storeMahasiswa'])->name('store-mahasiswa');
