@@ -15,7 +15,7 @@
 
     <!-- Tabel Beasiswa -->
     <table class="table table-bordered tb-beasiswa">
-        <thead class="bg-primary text-white">
+        <thead>
             <tr>
                 <th style="text-align: center;">No</th>
                 <th style="text-align: center;">Nama Beasiswa</th>

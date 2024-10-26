@@ -17,6 +17,7 @@
                 <th style="text-align: center;">Semester</th>
                 <th style="text-align: center;">IPK</th>
                 <th style="text-align: center;">Beasiswa</th>
+                <th style="text-align: center;">Berkas</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +35,11 @@
                 <td style="text-align: center;">{{ $data->semester }}</td>
                 <td style="text-align: center;">{{ $data->ipk }}</td>
                 <td style="text-align: center;">{{ $data->nama_beasiswa }}</td>
+                <td style="text-align: center;">
+                    <a href="{{ Storage::url($data->berkas) }}" target="_blank">
+                        <button class="btn btn-success">Lihat berkas</button>
+                    </a>
+                </td>
             </tr>
             @endforeach
             @endif
