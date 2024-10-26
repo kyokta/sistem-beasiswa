@@ -35,6 +35,7 @@ class BeasiswaController extends Controller
     {
         $validatedData = $request->validate([
             'namaBeasiswa' => 'required|string|max:255',
+            'jenisBeasiswa' => 'required|in:akademik,non-akademik',
             'sumberDana' => 'required|string|max:255',
             'syarat' => 'required|array',
             'syarat.*' => 'required|string|max:255',
@@ -43,6 +44,7 @@ class BeasiswaController extends Controller
 
         $beasiswa = new Beasiswa();
         $beasiswa->nama = $validatedData['namaBeasiswa'];
+        $beasiswa->jenis_beasiswa = $validatedData['jenisBeasiswa'];
         $beasiswa->sumber_dana = $validatedData['sumberDana'];
         $beasiswa->jumlah_kuota = $validatedData['jumlahKuota'];
         $beasiswa->save();
@@ -87,6 +89,7 @@ class BeasiswaController extends Controller
                 'ipk' => $validatedData['ipk'],
                 'beasiswa' => $validatedData['beasiswa'],
                 'berkas' => $filePath,
+                'status' => 'unverified'
             ]);
 
             return response()->json([

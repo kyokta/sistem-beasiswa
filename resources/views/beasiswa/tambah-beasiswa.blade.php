@@ -14,6 +14,16 @@
                         </div>
                     </div>
                     <div class="mb-3 row">
+                        <label for="jenisBeasiswa" class="col-sm-4 col-form-label">Jenis Beasiswa</label>
+                        <div class="col-sm-8">
+                            <select name="jenisBeasiswa" id="jenisBeasiswa" class="form-control">
+                                <option value="" disabled selected>Pilih jenis beasiswa</option>
+                                <option value="akademik">Akademik</option>
+                                <option value="non-akademik">Non Akademik</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
                         <label for="sumberDana" class="col-sm-4 col-form-label">Sumber Dana</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="sumberDana" id="sumberDana" placeholder="Masukkan sumber dana">
@@ -78,6 +88,7 @@
         // Menyimpan beasiswa
         $('#btnSimpanBeasiswa').on('click', function() {
             var namaBeasiswa = $('#namaBeasiswa').val();
+            var jenisBeasiswa = $('#jenisBeasiswa').val();
             var sumberDana = $('#sumberDana').val();
             var syarat = $('input[name="syarat[]"]').map(function() {
                 return $(this).val();
@@ -86,12 +97,20 @@
             });
             var jumlahKuota = $('#jumlahKuota').val();
 
-            console.log(syarat.length)
-
             if (!namaBeasiswa) {
                 Swal.fire({
                     title: "Peringatan",
                     text: "Nama beasiswa belum diisi.",
+                    icon: "warning",
+                    confirmButtonText: "OK"
+                });
+                return;
+            }
+
+            if (!jenisBeasiswa) {
+                Swal.fire({
+                    title: "Peringatan",
+                    text: "Jenis beasiswa belum dipilih.",
                     icon: "warning",
                     confirmButtonText: "OK"
                 });
@@ -133,6 +152,7 @@
                 type: 'POST',
                 data: {
                     namaBeasiswa: namaBeasiswa,
+                    jenisBeasiswa: jenisBeasiswa,
                     sumberDana: sumberDana,
                     syarat: syarat,
                     jumlahKuota: jumlahKuota,
