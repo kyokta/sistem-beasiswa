@@ -19,6 +19,7 @@
             <tr>
                 <th style="text-align: center;">No</th>
                 <th style="text-align: center;">Nama Beasiswa</th>
+                <th style="text-align: center;">Jenis Beasiswa</th>
                 <th style="text-align: center;">Sumber Dana</th>
                 <th style="text-align: center;">Syarat</th>
                 <th style="text-align: center;">Jumlah Kuota</th>
@@ -29,6 +30,13 @@
             <tr>
                 <td style="text-align: center;">{{ $index + 1 }}</td>
                 <td style="text-align: center;">{{ $data->nama }}</td>
+                <td style="text-align: center;">
+                    @if($data->jenis_beasiswa === 'akademik')
+                    Akademik
+                    @else
+                    Non Akademik
+                    @endif
+                </td>
                 <td style="text-align: center;">{{ $data->sumber_dana }}</td>
                 <td style="text-align: center;">
                     <ul>

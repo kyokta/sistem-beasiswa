@@ -20,6 +20,7 @@ return new class extends Migration
             $table->decimal('ipk', 3, 2);
             $table->foreignId('beasiswa')->constrained('beasiswas')->onDelete('cascade');
             $table->string('berkas');
+            $table->enum('status', ['unverified', 'on-review', 'verified', 'accepted']);
             $table->timestamps();
         });
     }

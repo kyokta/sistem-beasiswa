@@ -18,6 +18,7 @@
                 <th style="text-align: center;">IPK</th>
                 <th style="text-align: center;">Beasiswa</th>
                 <th style="text-align: center;">Berkas</th>
+                <th style="text-align: center;">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,20 @@
                         <button class="btn btn-success">Lihat berkas</button>
                     </a>
                 </td>
+                <td style="text-align: center;">
+                    @if($data->status === 'unverified')
+                    <span class="badge bg-secondary">Unverified</span>
+                    @elseif($data->status === 'on-review')
+                    <span class="badge bg-warning text-dark">On Review</span>
+                    @elseif($data->status === 'verified')
+                    <span class="badge bg-info text-dark">Verified</span>
+                    @elseif($data->status === 'accepted')
+                    <span class="badge bg-success">Accepted</span>
+                    @else
+                    <span class="badge bg-dark">Unknown</span>
+                    @endif
+                </td>
+
             </tr>
             @endforeach
         </tbody>
