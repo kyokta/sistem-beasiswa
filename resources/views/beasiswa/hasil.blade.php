@@ -21,11 +21,6 @@
             </tr>
         </thead>
         <tbody>
-            @if( $mahasiswa->isEmpty() )
-            <tr>
-                <td colspan="7" style="text-align: center;">Tidak ada mahasiswa yang mendaftar beasiswa.</td>
-            </tr>
-            @else
             @foreach($mahasiswa as $index => $data)
             <tr>
                 <td style="text-align: center;">{{ $index + 1 }}</td>
@@ -42,7 +37,6 @@
                 </td>
             </tr>
             @endforeach
-            @endif
         </tbody>
     </table>
 </div>
